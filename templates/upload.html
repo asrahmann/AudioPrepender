@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Audio Files</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="logo">
+    <img src="{{ url_for('static', filename='ccllogo.png') }}" alt="Logo" style="max-width: 350px;">
+</div>
+<div class="border">
+    <div class="container">
+        <h1>Audio Prepender</h1>
+        <p>Upload Audio</p>
+        <p>Maximum file size is 500 MB</p>
+        <form method="post" enctype="multipart/form-data">
+            Main audio file: <input type="file" name="main_audio"><br>
+            Prepend audio file: <input type="file" name="append_audio"><br>
+            <input type="submit" value="Upload">
+        </form>
+        <p>Created by Ahmedur Rahman 8/22/2024</p>
+    </div>
+</body>
+</html>
+
+<footer>
+  <p>&copy; 2024 CloudCodeLabs</p>
+</footer>
