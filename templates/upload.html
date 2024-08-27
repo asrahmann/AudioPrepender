@@ -1,30 +1,64 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Audio Files</title>
+    <meta charset="utf-8">
+    <title>Audio Prepender</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Add a hover area at the bottom of the page */
+        .hover-area {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 50px; /* Same height as the footer */
+            z-index: 1; /* Ensure it is above other elements */
+        }
+    </style>
 </head>
 <body>
-  <div class="logo">
-    <img src="{{ url_for('static', filename='ccllogo.png') }}" alt="Logo" style="max-width: 350px;">
-</div>
-<div class="border">
-    <div class="container">
-        <h1>Audio Prepender</h1>
-        <p>Upload Audio</p>
-        <p>Maximum file size is 500 MB</p>
-        <form method="post" enctype="multipart/form-data">
-            Main audio file: <input type="file" name="main_audio"><br>
-            Prepend audio file: <input type="file" name="append_audio"><br>
-            <input type="submit" value="Upload">
-        </form>
-        <p>Created by Ahmedur Rahman 8/22/2024</p>
+    <div class="logo">
+        <img src="{{ url_for('static', filename='ccllogo.png') }}" alt="Logo" style="max-width: 350px;">
     </div>
+    <div class="border">
+        <div class="container">
+            <h1>Audio Prepender</h1>
+            <p>Upload Audio</p>
+            <p>Maximum file size is 15 MB</p>
+            <form method="post" enctype="multipart/form-data">
+                Main audio file: <input type="file" name="main_audio"><br>
+                Prepend audio file: <input type="file" name="append_audio"><br>
+                <input type="submit" value="Upload">
+            </form>
+            <hr>
+            <h2>Convert Single Audio File</h2>
+            <form method="post" action="{{ url_for('convert_single') }}" enctype="multipart/form-data">
+                Single audio file: <input type="file" name="single_audio"><br>
+                <input type="submit" value="Convert">
+            </form>
+            <p>Created by Ahmedur Rahman 8/22/2024</p>
+        </div>
+    </div>
+    <div class="hover-area"></div> <!-- Hover area to detect mouse hover -->
+    <footer>
+        <p>&copy; 2024 CloudCodeLabs</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const footer = document.querySelector('footer');
+            const hoverArea = document.querySelector('.hover-area');
+            let hoverTimeout;
+
+            hoverArea.addEventListener('mouseenter', function() {
+                hoverTimeout = setTimeout(function() {
+                    footer.classList.add('show');
+                }, 2000); // 2 seconds
+            });
+
+            hoverArea.addEventListener('mouseleave', function() {
+                clearTimeout(hoverTimeout);
+                footer.classList.remove('show');
+            });
+        });
+    </script>
 </body>
 </html>
-
-<footer>
-  <p>&copy; 2024 CloudCodeLabs</p>
-</footer>

@@ -71,4 +71,10 @@ footer {
     color: #fff;
     padding: 10px 0;
     height: 50px; /* Adjust the height as needed */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.5s; /* Smooth transition */
+}
+
+footer.show {
+    opacity: 1; /* Show footer */
 }
