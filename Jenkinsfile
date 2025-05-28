@@ -6,7 +6,7 @@ pipeline {
         CONTAINER_NAME = "audioprepender_container"
     }
 
-
+    stages {
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t $IMAGE_NAME .'
