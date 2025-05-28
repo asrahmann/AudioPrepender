@@ -6,12 +6,6 @@ pipeline {
         CONTAINER_NAME = "audioprepender_container"
     }
 
-    stages {
-        stage('Clone Repo') {
-            steps {
-                git 'https://github.com/asrahmann/AudioPrepender.git'
-            }
-        }
 
         stage('Build Docker Image') {
             steps {
