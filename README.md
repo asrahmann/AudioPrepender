@@ -20,7 +20,7 @@ This project is a Flask application that allows users to upload and process audi
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/your-repo.git
+   git clone https://github.com/asrahmann/AudioPrepender.git
    cd your-repo
    
 2. Create and activate a virtual environment:
