@@ -21,8 +21,11 @@ def upload_file():
         main_audio = AudioSegment.from_file(main_file)
         append_audio = AudioSegment.from_file(append_file)
 
-        # Append the second audio file to the first one
-        combined_audio = append_audio + main_audio
+        # Create 1 second of silence
+        one_second_silence = AudioSegment.silent(duration=1000)  # duration in milliseconds
+
+        # Prepend the second audio file, then silence, then the first one
+        combined_audio = append_audio + one_second_silence + main_audio
 
         # Set audio parameters: 8 kHz, mono, 16-bit (linear PCM)
         combined_audio = combined_audio.set_frame_rate(8000)
