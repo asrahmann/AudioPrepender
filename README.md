@@ -3,8 +3,8 @@
 This project is a Flask application that allows users to upload and process audio files. The application uses the `pydub` library to manipulate audio files and `ffmpeg` for audio processing.
 
 # NOTE: These audio parameters are fixed for telephony compliance.
-# All audio must be mono, 8 kHz, 16-bit PCM (G711-compatible).
-# Format will always be .wav for SIP/PBX systems.
+ All audio must be mono, 8 kHz, 16-bit PCM (G711-compatible).
+ Format will always be .wav for SIP/PBX systems.
 
 ## Features
 
